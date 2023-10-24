@@ -1,0 +1,40 @@
+
+// Breakpoints
+$Mobile  : 360px;
+$Tablet  : 760px; 
+$Laptop  : 1360px;
+$Desktop : 1919px;
+
+@function translate-media-condition($c) {
+  $condMap: (
+    "horizontal"        : "(min-aspect-ratio: 1/1)",
+    "horizontal-short"  : "(min-aspect-ratio: 4/3)",
+    "horizontal-medium" : "(min-aspect-ratio: 3/2)",
+    "horizontal-long"   : "(min-aspect-ratio: 2/1)",
+    "vertical"          : "(max-aspect-ratio: 1/1)",
+    "vertical-short"    : "(max-aspect-ratio: 2/3)",
+    "vertical-long"     : "(max-aspect-ratio: 1/2)",
+    ">Mobile"           : "(min-width: #{$Mobile + 1})",
+    "<Mobile"           : "(max-width: #{$Mobile})", 		
+    ">Tablet"           : "(min-width: #{$Tablet + 1})",
+    "<Tablet"           : "(max-width: #{$Tablet})", 	
+    ">Laptop"           : "(min-width: #{$Laptop + 1})",
+    "<Laptop"           : "(max-width: #{$Laptop})", 	
+    ">Desktop"          : "(min-width: #{$Desktop + 1})",
+    "<Desktop"          : "(max-width: #{$Desktop})", 	
+  );
+  @return map-get( $condMap, $c );
+}
+
+// The media mixin
+@mixin media($args...) {
+  $query: "";
+  @each $arg in $args {
+    $op: "";
+    @if ( $query != "" ) {
+      $op: " and ";
+    }
+    $query: $query + $op + translate-media-condition($arg);
+  }
+  @media #{$query} { @content; }
+}
