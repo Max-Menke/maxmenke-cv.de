@@ -1,7 +1,8 @@
 
-// templates
-import  MainWindowFrame from './templates/MainWindowFrame/MainWindowFrame';
+// Templates
+  import MainWindowFrame from './templates/MainWindowFrame/MainWindowFrame';
 
-export {
-  MainWindowFrame,
+export  {
+  // Templates
+    MainWindowFrame,
 }
