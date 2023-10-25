@@ -10,18 +10,26 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 12.5vh;
-        width: calc(100% - 5vh);
+        height: 25vh;
+        width: 100%;
         position: fixed;
         top: 0px;
         z-index: 50;
+
+        @include media("vertical") {
+            height: 17.5vh;
+        }
+
+        @include media("vertical-short") {
+            height: 14.5vh;
+        }
+
+        @include media("vertical-long") {
+            height: 12.5vh;
+        }
     }
 
     &__Content {
-        //margin: 12.5vh 2.5vh 0vh 2.5vh;
-        // height: calc(100% - 12.5vh);
-        //width: calc(100% - 5vh);
-        //border-radius: 2vh 2vh 0 0;
         height: 100%;
         width: 100%;
         scroll-snap-type: y mandatory;
@@ -39,18 +47,45 @@
 
 .MainFullFrame-Headline {
     font-family: Himpun;
-    font-size: 7.5vh;
+    font-size: 20vh;
     color: $color-theme-a;
+    margin: unset;
+    opacity: 75%;
+    transition: all ease-in-out 0.1s;
+
+    @include media("vertical") {
+        font-size: 15vh;
+    }
+
+    @include media("vertical-short") {
+        font-size: 12vh;
+    }
+
+    @include media("vertical-long") {
+        font-size: 10vh;
+    }
 }
 
 .MainFullFrame-Section {
     width: 100%;
-    //min-height: calc(100% - 2.5vh);
-    min-height: calc(100% - 15vh);
-    //background-color: $color-white;
-    //padding-bottom: 2.5vh;
-    padding: 12.5vh 0 2.5vh 0;
+    min-height: calc(100% - 22.5vh);
+    padding-top: 22.5vh;
     display: flex;
     scroll-snap-align: start;
     scroll-snap-stop: normal;
+
+    @include media("vertical") {
+        min-height: calc(100% - 15vh);
+        padding-top: 15vh;
+    }
+
+    @include media("vertical-short") {
+        min-height: calc(100% - 12vh);
+        padding-top: 12vh;
+    }
+
+    @include media("vertical-long") {
+        min-height: calc(100% - 10vh);
+        padding-top: 10vh;
+    }
 }
