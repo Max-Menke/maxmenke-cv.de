@@ -8,9 +8,9 @@ $Desktop : 1919px;
 @function translate-media-condition($c) {
   $condMap: (
     "horizontal"        : "(min-aspect-ratio: 1/1)",
-    "horizontal-short"  : "(min-aspect-ratio: 4/3)",
-    "horizontal-medium" : "(min-aspect-ratio: 3/2)",
-    "horizontal-long"   : "(min-aspect-ratio: 2/1)",
+    "horizontal-short"  : "(max-aspect-ratio: 4/3)",
+    "horizontal-medium" : "(max-aspect-ratio: 3/2)",
+    "horizontal-long"   : "(max-aspect-ratio: 2/1)",
     "vertical"          : "(max-aspect-ratio: 1/1)",
     "vertical-short"    : "(max-aspect-ratio: 2/3)",
     "vertical-long"     : "(max-aspect-ratio: 1/2)",
