@@ -1,0 +1,60 @@
+@import "/src/utilities/utilities.scss";
+
+.MainWindowFrame {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+
+    &__Headline {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 12.5vh;
+        width: calc(100% - 5vh);
+        position: fixed;
+        top: 0px;
+        z-index: 50;
+    }
+
+    &__Content {
+        margin: 12.5vh 2.5vh 0vh 2.5vh;
+        height: calc(100% - 12.5vh);
+        width: calc(100% - 5vh);
+        border-radius: 2vh 2vh 0 0;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &--space {
+            height: 2.5vh;
+        }
+    }
+}
+
+.MainHeadline {
+    font-family: Himpun;
+    font-size: 7.5vh;
+    color: $color-theme-a;
+}
+
+.MainSection {
+    width: 100%;
+    min-height: calc(100% - 2.5vh);
+    background-color: $color-white;
+    padding-bottom: 2.5vh;
+    display: flex;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+
+    &-last {
+        @extend .MainSection;
+        border-radius: 0 0 2vh 2vh;
+        padding-bottom: unset;
+        background-color: rosybrown;
+        z-index: 2;
+    }
+}
