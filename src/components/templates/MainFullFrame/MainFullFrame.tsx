@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
 import "./MainFullFrame.scss";
 
@@ -9,13 +9,18 @@ interface Props {
 
 const MainFullFrame = ({ children, headlines }: Props) => {
     const childrenArray = React.Children.toArray(children);
+
     const [currentSection, setCurrentSection] = useState(0);
+
+    const scrollDiv = useRef<HTMLDivElement | null>(null);
+    const headlineDiv = useRef<HTMLDivElement | null>(null);
+    const headline = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         let options = {
             root: null,
             rootMargin: "0px",
-            threshold: 0.95,
+            threshold: 0.9,
         };
 
         let callback = (entries: IntersectionObserverEntry[]) => {
@@ -23,7 +28,7 @@ const MainFullFrame = ({ children, headlines }: Props) => {
             let index = parseInt(targetElement.getAttribute("data-index") || "-1", 10);
             let visiblePct = Math.floor(entries[0].intersectionRatio * 100);
 
-            if (visiblePct >= 95) {
+            if (visiblePct >= 90) {
                 setCurrentSection(index);
             }
         };
@@ -40,19 +45,60 @@ const MainFullFrame = ({ children, headlines }: Props) => {
         };
     });
 
+    useEffect(() => {
+        let scrollTimeoutHeadlineDiv: ReturnType<typeof setTimeout>;
+        let scrollTimeoutHeadline: ReturnType<typeof setTimeout>;
+
+        const handleScroll = () => {
+            if (headlineDiv.current) {
+                headlineDiv.current.style.zIndex = "100";
+                clearTimeout(scrollTimeoutHeadlineDiv);
+                scrollTimeoutHeadlineDiv = setTimeout(() => {
+                    if (headlineDiv.current) {
+                        headlineDiv.current.style.zIndex = "";
+                    }
+                }, 50);
+            }
+
+            if (headline.current) {
+                headline.current.style.opacity = "1";
+                clearTimeout(scrollTimeoutHeadline);
+                scrollTimeoutHeadline = setTimeout(() => {
+                    if (headline.current) {
+                        headline.current.style.opacity = "";
+                    }
+                }, 50);
+            }
+        };
+
+        const div = scrollDiv.current;
+        if (div) {
+            div.addEventListener("scroll", handleScroll);
+        }
+
+        return () => {
+            if (div) {
+                div.removeEventListener("scroll", handleScroll);
+            }
+            clearTimeout(scrollTimeoutHeadlineDiv);
+            clearTimeout(scrollTimeoutHeadline);
+        };
+    }, []);
+
     return (
         <main className="MainFullFrame-Layout">
-            <div className="MainFullFrame-Layout__Headline">
+            <div className="MainFullFrame-Layout__Headline" ref={headlineDiv}>
                 <TypeAnimation
                     key={currentSection}
                     cursor={false}
                     sequence={[`${headlines[currentSection]}`, 10, () => {}]}
                     speed={15}
-                    wrapper="h1"
+                    wrapper="h2"
                     className={`MainFullFrame-Headline`}
+                    ref={headline}
                 />
             </div>
-            <div className="MainFullFrame-Layout__Content">
+            <div className="MainFullFrame-Layout__Content" ref={scrollDiv}>
                 {childrenArray.map((child, index) => (
                     <section
                         key={index}
@@ -63,7 +109,6 @@ const MainFullFrame = ({ children, headlines }: Props) => {
                         {child}
                     </section>
                 ))}
-                <div className="MainFullFrame-Section__Content--space"></div>
             </div>
         </main>
     );

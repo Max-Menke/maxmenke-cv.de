@@ -1,0 +1,125 @@
+@import "/src/utilities/utilities.scss";
+
+.ProfileInfo-Layout {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+
+    &__start {
+        display: flex;
+        position: absolute;
+        height: 100%;
+        width: 70%;
+        justify-content: flex-start;
+
+        @include media("horizontal-short") {
+            width: 90%;
+        }
+
+        @include media("vertical") {
+            width: 90%;
+        }
+    }
+
+    &__end {
+        display: flex;
+        position: absolute;
+        height: 100%;
+        width: 70%;
+        justify-content: flex-end;
+        align-items: center;
+
+        @include media("horizontal-short") {
+            width: 90%;
+        }
+
+        @include media("vertical") {
+            width: 90%;
+            align-items: flex-start;
+        }
+    }
+}
+
+.ProfileInfo-Picture {
+    display: flex;
+    height: calc(100% + 15vh);
+    top: -15vh;
+    width: 50%;
+    position: relative;
+    justify-content: center;
+
+    @include media("vertical") {
+        height: 100%;
+        top: unset;
+    }
+
+    &__circle {
+        position: absolute;
+        background-color: $color-white;
+        border-radius: 100%;
+        width: 80vh;
+        height: 80vh;
+        z-index: 1;
+
+        @include media("vertical-short") {
+            margin-top: 10vh;
+            width: 60vh;
+            height: 60vh;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        height: calc(100% + 5vh);
+        top: -5vh;
+        z-index: 60;
+        align-self: flex-end;
+
+        @include media("vertical-short") {
+            height: 95%;
+            top: unset;
+        }
+    }
+}
+
+.ProfileInfo-Text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 65;
+    margin-bottom: 20vh;
+
+    &__name {
+        font-family: Syne;
+        color: $color-theme-a;
+        font-size: 10vh;
+        font-weight: 100;
+        margin: unset;
+
+        @include media("vertical") {
+            font-size: 7vh;
+        }
+
+        @include media("vertical-short") {
+            font-size: 6vh;
+        }
+    }
+
+    &__jobTitle {
+        font-family: Syne;
+        color: $color-theme-a;
+        font-size: 6vh;
+        font-weight: 100;
+        margin: unset;
+        @include media("vertical") {
+            font-size: 4vh;
+        }
+
+        @include media("vertical-short") {
+            font-size: 3.5vh;
+        }
+    }
+}
