@@ -1,0 +1,132 @@
+@import "/src/utilities/UTLS.scss";
+
+.TimelineElement {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: calc(100% - 25vh);
+    width: 100%;
+    margin-top: 25vh;
+
+    @include media("vertical") {
+        height: calc(100% - 17.5vh);
+        margin-top: 17.5vh;
+    }
+
+    @include media("vertical-short") {
+        height: calc(100% - 14.5vh);
+        margin-top: 14.5vh;
+    }
+
+    @include media("vertical-long") {
+        height: calc(100% - 12.5vh);
+        margin-top: 12.5vh;
+    }
+
+    &__overlay {
+        pointer-events: none;
+        position: absolute;
+        height: 100%;
+        top: 0px;
+        width: max-content;
+        max-width: 30vw;
+        display: flex;
+        align-items: center;
+
+        &-left {
+            @extend .TimelineElement__overlay;
+            right: 100%;
+            justify-content: flex-end;
+            margin-right: 2.5vh;
+            text-align: right;
+        }
+
+        &-right {
+            @extend .TimelineElement__overlay;
+            left: 100%;
+            justify-content: flex-start;
+            margin-left: 2.5vh;
+            text-align: left;
+        }
+
+        &-last {
+            @extend .TimelineElement__overlay;
+            right: 100%;
+            justify-content: flex-end;
+            margin-right: 2.5vh;
+            text-align: right;
+        }
+
+        @include media("horizontal-short") {
+            &-right {
+                left: 33%;
+                margin: unset;
+                right: unset;
+                text-align: left;
+                justify-content: flex-start;
+                max-width: 70vw;
+            }
+
+            &-left {
+                left: 33%;
+                margin: unset;
+                right: unset;
+                text-align: left;
+                justify-content: flex-start;
+                max-width: 70vw;
+            }
+
+            &-last {
+                right: 33%;
+                left: unset;
+                justify-content: flex-end;
+                margin: unset;
+                text-align: right;
+                max-width: 70vw;
+            }
+        }
+    }
+}
+
+.TimelineElement-Info {
+    opacity: 0;
+    transition: all ease-in-out 0.4s;
+    font-family: Syne;
+    color: $color-theme-a;
+
+    &-active {
+        @extend .TimelineElement-Info;
+        opacity: 1;
+    }
+
+    & h2 {
+        font-size: 4vh;
+    }
+
+    & p {
+        font-size: 3vh;
+    }
+}
+
+.TimelineElement-Number {
+    display: flex;
+    flex-direction: column;
+    transition: all ease-in-out 0.4s;
+
+    & span {
+        font-size: 8vh;
+        font-family: Himpun;
+        color: $color-black;
+    }
+
+    &-active {
+        display: flex;
+        flex-direction: column;
+        transition: all ease-in-out 0.4s;
+        & span {
+            font-size: 8vh;
+            font-family: Himpun;
+            color: $color-theme-a;
+        }
+    }
+}

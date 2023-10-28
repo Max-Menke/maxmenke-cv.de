@@ -1,22 +1,24 @@
-@import "/src/utilities/utilities.scss";
+@import "/src/utilities/UTLS.scss";
 
 .ProfileInfo-Layout {
-    position: relative;
+    position: absolute;
+    top: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: auto;
+    height: 100%;
     width: 100%;
 
     &__start {
         display: flex;
         position: absolute;
         height: 100%;
-        width: 70%;
+        width: 80%;
         justify-content: flex-start;
+        transition: all ease-in-out 0.25s;
 
         @include media("horizontal-short") {
-            width: 90%;
+            width: 85%;
         }
 
         @include media("vertical") {
@@ -27,45 +29,49 @@
     &__end {
         display: flex;
         position: absolute;
-        height: 100%;
         width: 70%;
         justify-content: flex-end;
         align-items: center;
+        transition: all ease-in-out 0.25s;
 
         @include media("horizontal-short") {
-            width: 90%;
+            width: 85%;
         }
 
         @include media("vertical") {
             width: 90%;
-            align-items: flex-start;
+            margin-bottom: 30vh;
+        }
+
+        @include media("vertical-short") {
+            margin-bottom: 35vh;
+        }
+
+        @include media("vertical-long") {
+            margin-bottom: 42.5vh;
         }
     }
 }
 
 .ProfileInfo-Picture {
     display: flex;
-    height: calc(100% + 15vh);
-    top: -15vh;
+    height: 100%;
     width: 50%;
     position: relative;
     justify-content: center;
 
-    @include media("vertical") {
-        height: 100%;
-        top: unset;
-    }
-
     &__circle {
         position: absolute;
+        align-self: center;
         background-color: $color-white;
         border-radius: 100%;
         width: 80vh;
         height: 80vh;
+        margin-bottom: 10vh;
         z-index: 1;
+        transition: all ease-in-out 0.25s;
 
         @include media("vertical-short") {
-            margin-top: 10vh;
             width: 60vh;
             height: 60vh;
         }
@@ -73,14 +79,13 @@
 
     &__img {
         position: absolute;
-        height: calc(100% + 5vh);
-        top: -5vh;
+        height: 100%;
         z-index: 60;
         align-self: flex-end;
+        transition: all ease-in-out 0.25s;
 
         @include media("vertical-short") {
-            height: 95%;
-            top: unset;
+            height: 90%;
         }
     }
 }
@@ -98,6 +103,7 @@
         font-size: 10vh;
         font-weight: 100;
         margin: unset;
+        transition: all ease-in-out 0.25s;
 
         @include media("vertical") {
             font-size: 7vh;
@@ -114,6 +120,8 @@
         font-size: 6vh;
         font-weight: 100;
         margin: unset;
+        transition: all ease-in-out 0.25s;
+
         @include media("vertical") {
             font-size: 4vh;
         }
