@@ -1,4 +1,4 @@
-@import "/src/utilities/utilities.scss";
+@import "/src/utilities/UTLS.scss";
 
 .MainFullFrame-Layout {
     width: 100%;
@@ -67,12 +67,13 @@
 }
 
 .MainFullFrame-Section {
-    width: 100%;
-    min-height: calc(100% - 22.5vh);
-    padding-top: 22.5vh;
     display: flex;
     scroll-snap-align: start;
     scroll-snap-stop: normal;
+    position: relative;
+    width: 100%;
+    min-height: calc(100% - 22.5vh);
+    padding-top: 22.5vh;
 
     @include media("vertical") {
         min-height: calc(100% - 15vh);

@@ -20,7 +20,7 @@ const MainFullFrame = ({ children, headlines }: Props) => {
         let options = {
             root: null,
             rootMargin: "0px",
-            threshold: 0.9,
+            threshold: 0.80,
         };
 
         let callback = (entries: IntersectionObserverEntry[]) => {
@@ -28,7 +28,7 @@ const MainFullFrame = ({ children, headlines }: Props) => {
             let index = parseInt(targetElement.getAttribute("data-index") || "-1", 10);
             let visiblePct = Math.floor(entries[0].intersectionRatio * 100);
 
-            if (visiblePct >= 90) {
+            if (visiblePct >= 80) {
                 setCurrentSection(index);
             }
         };
