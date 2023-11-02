@@ -1,0 +1,58 @@
+@import "/src/utilities/UTLS.scss";
+
+.SkillsInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+
+    @include media("vertical") {
+        flex-direction: column;
+        margin-bottom: 10%;
+    }
+
+    &__start {
+        display: flex;
+        width: 45%;
+        height: 100%;
+
+        @include media("vertical") {
+            height: 45%;
+            width: 75%;
+            margin-right: 25%;
+        }
+
+        @include media("vertical-short") {
+            width: 80%;
+            margin-right: 20%;
+        }
+
+        @include media("vertical-long") {
+            width: 85%;
+            margin-right: 15%;
+        }
+    }
+
+    &__end {
+        display: flex;
+        width: 45%;
+        height: 100%;
+
+        @include media("vertical") {
+            height: 45%;
+            width: 75%;
+            margin-left: 25%;
+        }
+
+        @include media("vertical-short") {
+            width: 80%;
+            margin-left: 20%;
+        }
+
+        @include media("vertical-long") {
+            width: 85%;
+            margin-left: 15%;
+        }
+    }
+}

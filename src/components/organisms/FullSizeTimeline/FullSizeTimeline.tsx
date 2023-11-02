@@ -20,13 +20,13 @@ const FullSizeTimeline = ({ timeline }: Props) => {
 
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const scrollDiv = useRef<HTMLDivElement | null>(null);
+    //const scrollDiv = useRef<HTMLDivElement | null>(null);
 
     return (
         <article className="FullSizeTimeline">
             <HorizontalSlider
                 draggable={true}
-                ref={scrollDiv}
+                //ref={scrollDiv}
                 onItemSelect={(index: number) => {
                     setActiveIndex(index);
                 }}
