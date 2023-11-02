@@ -1,0 +1,88 @@
+@import "/src/utilities/UTLS.scss";
+
+.EndlessSliderVertical {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 2vh);
+    margin-bottom: 2vh;
+
+    @include media("vertical") {
+        justify-content: center;
+        margin-bottom: unset;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+        transition: all ease-in-out 0.5s;
+        width: calc(100% - 8vh);
+        height: 4.5vh;
+        margin-bottom: 2vh;
+
+        padding: 2vh 4vh 2vh 4vh;
+
+
+        justify-content: space-evenly;
+
+        @include media("vertical") {
+            margin-bottom: 1vh;
+            padding: 0vh;
+            padding-left: 4vh;
+        }
+
+        &-active {
+            @extend .EndlessSliderVertical__wrapper;
+            background-color: $color-white;
+            opacity: 1;
+            height: 40%;
+
+            @include media("vertical") {
+                padding: 1vh;
+                padding-left: 4vh;
+                height: 45%;
+            }
+        }
+
+        &--heading {
+            font-size: 3vh;
+            font-family: syne;
+            transition: all ease-in-out 0.5s;
+            margin: unset;
+            margin-bottom: 1vh;
+
+            @include media("vertical") {
+                font-size: 2.5vh;
+                margin-bottom: 0.5vh;
+            }
+
+            &-active {
+                @extend .EndlessSliderVertical__wrapper--heading;
+                font-size: 6vh;
+                font-family: himpun;
+
+                @include media("vertical") {
+                    font-size: 4vh;
+                }
+            }
+        }
+
+        &--text {
+            transition: all ease-in-out 0.5s;
+            height: 0vh;
+            overflow: hidden;
+
+            &-active {
+                & p {
+                    font-size: 4vh;
+                    font-family: syne;
+                    margin: unset;
+                    @include media("vertical") {
+                        font-size: 2vh;
+                    }
+                }
+            }
+        }
+    }
+}
