@@ -1,0 +1,37 @@
+@import "/src/utilities/UTLS.scss";
+
+.CollorChangeButtonLink {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, color 0.5s ease;
+    font-family: Syne;
+    font-size: 3vh;
+
+    &.styling-0 {
+        border: 0.25vh solid $color-theme-a;
+        background-color: $color-theme-a;
+        color: $color-white;
+
+        &:hover {
+            border: 0.25vh solid $color-black;
+            color: $color-black;
+            background-color: $color-theme-b;
+        }
+
+    }
+
+    &.styling-1 {
+        border: 0.25vh solid $color-black;
+        background-color: $color-black;
+        color: $color-white;
+
+        &:hover {
+            border: 0.25vh solid $color-black;
+            color: $color-black;
+            background-color: $color-theme-b;
+        }
+    }
+
+}
