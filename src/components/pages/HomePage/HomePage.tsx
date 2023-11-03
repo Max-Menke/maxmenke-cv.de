@@ -1,4 +1,4 @@
-import { MainFullFrame, ProfileInfo, FullSizeTimeline, SkillsInfo } from "../../elements";
+import { MainFullFrame, ProfileInfo, FullSizeTimeline, SkillsInfo, ProjectInfo } from "../../elements";
 import "./HomePage.scss";
 
 function HomePage() {
@@ -39,7 +39,6 @@ function HomePage() {
                             titel: "Projektorientiert",
                             text: "Hier  jetzt irgendein Text der Text beschreibt die ",
                         },
-
                     ]}
                     icons={[
                         { name: "HTML", url: "/src/assets/img/icons/html5", alt: "" },
@@ -54,7 +53,37 @@ function HomePage() {
                         { name: "WEB-PACK", url: "/src/assets/img/icons/webpack", alt: "" },
                     ]}
                 />
-                <p>Hallo 4</p>
+                <ProjectInfo
+                    category={[
+                        {
+                            name: "Wordpress",
+                            projects: [
+                                {
+                                    titel: "imagedepartment.de",
+                                    descriptionOne: "Fotografen Portfolio Website",
+                                    descriptionTwo: "Entwiklung eines Costum Wordpress theams",
+                                    imgURL: "/src/assets/img/Imagedepartment.png",
+                                    imgAlt: "",
+                                    webLink: "test",
+                                    GitLink: "test",
+                                },
+                            ],
+                        },
+                        {
+                            name: "React",
+                            projects: [
+                                {
+                                    titel: "maxmenke-cv.de",
+                                    descriptionOne: "Meine eigene Lebenslauf Webpage",
+                                    descriptionTwo: "Entwiklung einer React App",
+                                    imgURL: "",
+                                    imgAlt: "",
+                                    GitLink: "test",
+                                },
+                            ],
+                        },
+                    ]}
+                />
                 <p>Hallo 5</p>
             </MainFullFrame>
         </div>
