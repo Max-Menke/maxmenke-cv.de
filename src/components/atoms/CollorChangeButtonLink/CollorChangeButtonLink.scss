@@ -1,0 +1,22 @@
+@import "/src/utilities/UTLS.scss";
+
+.CollorChangeButtonLink {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: Syne;
+    font-size: 3vh;
+
+    &.styling-0 {
+        background-color: $color-theme-a;
+        color: $color-white;
+    }
+
+    &.styling-1 {
+        background-color: $color-black;
+        color: $color-white;
+    }
+
+}
