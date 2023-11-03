@@ -2,6 +2,8 @@
   import ExtendedDiv from './atoms/ExtendedDiv/ExtendedDiv';
   import DottSliderDisplay from './atoms/DottSliderDisplay/DottSliderDisplay';
   import ColorChangeSVG from './atoms/ColorChangeSVG/ColorChangeSVG';
+  import LoadingButton from './atoms/LoadingButton/LoadingButton';
+  import CollorChangeButtonLink from './atoms/CollorChangeButtonLink/CollorChangeButtonLink';
 
 // Molecules
   import HorizontalSlider from './molecules/HorizontalSlider/HorizontalSlider';
@@ -18,12 +20,15 @@
   import ProfileInfo from './organisms/ProfileInfo/ProfileInfo';
   import FullSizeTimeline from './organisms/FullSizeTimeline/FullSizeTimeline';
   import SkillsInfo from './organisms/SkillsInfo/SkillsInfo';
+  import ProjectInfo from './organisms/ProjectInfo/ProjectInfo';
 
 export  {
 //Atoms
   ExtendedDiv,
   DottSliderDisplay,
   ColorChangeSVG,
+  LoadingButton,
+  CollorChangeButtonLink,
 
 // Molecules
   HorizontalSlider,
@@ -40,4 +45,6 @@ export  {
   ProfileInfo,
   FullSizeTimeline,
   SkillsInfo,
+  ProjectInfo,
+
 }
