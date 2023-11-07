@@ -24,7 +24,6 @@
   import MainWindowFrame from './templates/MainWindowFrame/MainWindowFrame';
   import MainFullFrame from './templates/MainFullFrame/MainFullFrame';
   import Header from './templates/Header/Header';
-  import Footer from './templates/Footer/Footer';
 
 export  {
 //Atoms
@@ -47,7 +46,6 @@ export  {
   MainWindowFrame,
   MainFullFrame,
   Header,
-  Footer,
 
 // Organisms
   ProfileInfo,

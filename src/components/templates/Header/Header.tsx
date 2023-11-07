@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import { BurgerMenu, MaterialIconButton, CollorChangeButtonLink } from "../../elements";
 import "./Header.scss";
 
@@ -20,7 +20,6 @@ interface Props {
 }
 
 const Header = ({ subMenu, menu, activeIndex, setActiveIndex }: Props) => {
-    const [menuWidth, setMenuWidth] = useState("6.5vh");
     const [menuState, setMenuState] = useState("");
 
     const handleMenuOpen = () => {
@@ -58,7 +57,7 @@ const Header = ({ subMenu, menu, activeIndex, setActiveIndex }: Props) => {
             </div>
             <div className={"Header__fourth " + menuState}>
                 <div className={"Header-subMenu "}>
-                    {subMenu.map((element, index) => (
+                    {subMenu.map((element) => (
                         <CollorChangeButtonLink title={element.title} styling={2} link={element.link} />
                     ))}
                 </div>

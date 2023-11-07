@@ -74,14 +74,6 @@
         display: flex;
         justify-content: center;
         width: 100%;
-
-        @include media("vertical") {
-            // width: 75%;
-        }
-
-        &.open {
-            //height: 25%;
-        }
     }
 
     &__fourth {
@@ -171,7 +163,6 @@
 
     @include media("vertical") {
         flex-direction: row;
-        //flex-wrap: unset;
         justify-content: center;
     }
 
