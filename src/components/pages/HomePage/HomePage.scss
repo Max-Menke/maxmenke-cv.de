@@ -1,6 +1,16 @@
 @import "/src/utilities/UTLS.scss";
 
-.HomePage {
-    height: 100%;
-    width: 100%;
+header {
+    order: 2;
+    @include media("vertical") {
+        position: fixed !important ;
+    }
+}
+
+main {
+    order: 1;
+
+    @include media("vertical") {
+        height: calc(100% - 7vh) !important ;
+    }
 }

@@ -1,14 +1,22 @@
 import React, { ReactNode, useEffect, useState, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
+import { slideToUPDown } from "../../../utilities/UTLF";
 import "./MainFullFrame.scss";
 
 interface Props {
     children: ReactNode;
     headlines: string[];
+    className?: string;
+    activeIndex: number;
+    setActiveIndex: (index: number) => void;
+    [x: string]: any;
 }
 
-const MainFullFrame = ({ children, headlines }: Props) => {
+const MainFullFrame = ({ children, headlines, className, activeIndex, setActiveIndex, ...props }: Props) => {
     const childrenArray = React.Children.toArray(children);
+    const itemRef = Array.from({ length: childrenArray.length }).map(() => useRef<HTMLDivElement>(null));
+
+    const [scroll, setScroll] = useState(false);
 
     const [currentSection, setCurrentSection] = useState(0);
 
@@ -20,7 +28,7 @@ const MainFullFrame = ({ children, headlines }: Props) => {
         let options = {
             root: null,
             rootMargin: "0px",
-            threshold: 0.80,
+            threshold: 0.8,
         };
 
         let callback = (entries: IntersectionObserverEntry[]) => {
@@ -29,7 +37,11 @@ const MainFullFrame = ({ children, headlines }: Props) => {
             let visiblePct = Math.floor(entries[0].intersectionRatio * 100);
 
             if (visiblePct >= 80) {
-                setCurrentSection(index);
+
+                if (!scroll) {
+                    setActiveIndex(index);
+                    setCurrentSection(index);
+                }
             }
         };
 
@@ -85,8 +97,27 @@ const MainFullFrame = ({ children, headlines }: Props) => {
         };
     }, []);
 
+    useEffect(() => {
+        let Element = itemRef[activeIndex].current;
+
+        if (!Element) {
+            return;
+        }
+
+        setScroll(true)
+
+        Element.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        setTimeout(() => {
+            setScroll(false)
+        }, 500);
+
+        setCurrentSection(activeIndex);
+
+    }, [activeIndex]);
+
     return (
-        <main className="MainFullFrame-Layout">
+        <main className={className + " MainFullFrame-Layout"} {...props}>
             <div className="MainFullFrame-Layout__Headline" ref={headlineDiv}>
                 <TypeAnimation
                     key={currentSection}
@@ -102,6 +133,7 @@ const MainFullFrame = ({ children, headlines }: Props) => {
                 {childrenArray.map((child, index) => (
                     <section
                         key={index}
+                        ref={itemRef[index]}
                         data-id={"MainFullFrame-Section"}
                         data-index={index}
                         className="MainFullFrame-Section"

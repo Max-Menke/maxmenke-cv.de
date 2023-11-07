@@ -1,10 +1,34 @@
-import { MainFullFrame, ProfileInfo, FullSizeTimeline, SkillsInfo, ProjectInfo } from "../../elements";
+import React, { ReactNode, useEffect, useState, useRef } from "react";
+import { MainFullFrame, Header, ProfileInfo, FullSizeTimeline, SkillsInfo, ProjectInfo } from "../../elements";
 import "./HomePage.scss";
 
 function HomePage() {
+    const [activeIndex, setActiveIndex] = useState(0);
+
     return (
-        <div className="HomePage">
-            <MainFullFrame headlines={["Welcome", "Timeline", "Skills", "Projects", "Contact"]}>
+        <>
+            <Header
+                menu={[
+                    { name: "Welcome", icon: "home" },
+                    { name: "Timeline", icon: "schedule" },
+                    { name: "Skills", icon: "build" },
+                    { name: "Projects", icon: "language" },
+                    { name: "Contact", icon: "mail" },
+                ]}
+                subMenu={[{ title: "LinkedIn", link: "" }]}
+                activeIndex={activeIndex}
+                setActiveIndex={(index) => {
+                    setActiveIndex(index);
+                }}
+            />
+            <MainFullFrame
+                headlines={["Welcome", "Timeline", "Skills", "Projects", "Contact"]}
+                className="Main"
+                activeIndex={activeIndex}
+                setActiveIndex={(index) => {
+                    setActiveIndex(index);
+                }}
+            >
                 <ProfileInfo
                     name="Max Menke"
                     jobTitle="Webentwickler"
@@ -86,7 +110,7 @@ function HomePage() {
                 />
                 <p>Hallo 5</p>
             </MainFullFrame>
-        </div>
+        </>
     );
 }
 
