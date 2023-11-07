@@ -4,6 +4,8 @@
   import ColorChangeSVG from './atoms/ColorChangeSVG/ColorChangeSVG';
   import LoadingButton from './atoms/LoadingButton/LoadingButton';
   import CollorChangeButtonLink from './atoms/CollorChangeButtonLink/CollorChangeButtonLink';
+  import BurgerMenu from './atoms/BurgerMenu/BurgerMenu';
+  import MaterialIconButton from './atoms/MaterialIconButton/MaterialIconButton';
 
 // Molecules
   import HorizontalSlider from './molecules/HorizontalSlider/HorizontalSlider';
@@ -12,15 +14,17 @@
   import EndlessSliderVertical from './molecules/EndlessSliderVertical/EndlessSliderVertical';
   import GridHorizontalSlider from './molecules/GridHorizontalSlider/GridHorizontalSlider';
 
-// Templates
-  import MainWindowFrame from './templates/MainWindowFrame/MainWindowFrame';
-  import MainFullFrame from './templates/MainFullFrame/MainFullFrame';
-
 // Organisms
   import ProfileInfo from './organisms/ProfileInfo/ProfileInfo';
   import FullSizeTimeline from './organisms/FullSizeTimeline/FullSizeTimeline';
   import SkillsInfo from './organisms/SkillsInfo/SkillsInfo';
   import ProjectInfo from './organisms/ProjectInfo/ProjectInfo';
+
+  // Templates
+  import MainWindowFrame from './templates/MainWindowFrame/MainWindowFrame';
+  import MainFullFrame from './templates/MainFullFrame/MainFullFrame';
+  import Header from './templates/Header/Header';
+  import Footer from './templates/Footer/Footer';
 
 export  {
 //Atoms
@@ -29,6 +33,8 @@ export  {
   ColorChangeSVG,
   LoadingButton,
   CollorChangeButtonLink,
+  BurgerMenu,
+  MaterialIconButton,
 
 // Molecules
   HorizontalSlider,
@@ -40,11 +46,12 @@ export  {
 // Templates
   MainWindowFrame,
   MainFullFrame,
+  Header,
+  Footer,
 
 // Organisms
   ProfileInfo,
   FullSizeTimeline,
   SkillsInfo,
   ProjectInfo,
-
 }
