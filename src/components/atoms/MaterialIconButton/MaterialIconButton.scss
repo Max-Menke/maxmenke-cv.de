@@ -1,0 +1,57 @@
+@import "/src/utilities/UTLS.scss";
+
+.MaterialIconButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+    //padding: 8px;
+    border-radius: 4px;
+    outline: none;
+    transition: all ease-in-out 0.3s;
+    width: 24px;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+    }
+
+    .material-icons {
+        font-size: 24px;
+        color: currentColor;
+        transition: all ease-in-out 0.3s;
+    }
+
+    &.open {
+        width: calc(50% - 1vh);
+        padding: 0.5vh;
+        background-color: $color-theme-b;
+
+        & .material-icons {
+            width: 25%;
+        }
+
+        & .MaterialIconButton__text {
+            width: 65%;
+            opacity: 1;
+            display: block;
+        }
+
+        
+    }
+
+    &__text {
+        width: 0%;
+        opacity: 0;
+        font-size: 2vh ;
+        font-family: syne;
+        text-align: left;
+        transition: all ease-in-out 0.3s;
+
+        @include media("vertical") {
+            display: none;
+        }
+    }
+
+}
