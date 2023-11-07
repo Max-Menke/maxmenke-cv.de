@@ -3,7 +3,7 @@
 .MainFullFrame-Layout {
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: relative;
     top: 0px;
 
     &__Headline {
@@ -12,7 +12,7 @@
         align-items: center;
         height: 25vh;
         width: 100%;
-        position: fixed;
+        position: absolute;
         top: 0px;
         z-index: 50;
 
