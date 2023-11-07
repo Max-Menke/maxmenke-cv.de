@@ -34,4 +34,16 @@
         }
     }
 
+    &.styling-2 {
+        border: 0.25vh solid $color-theme-b;
+        background-color: $color-theme-b;
+        color: $color-black;
+
+        &:hover {
+            border: 0.25vh solid $color-black;
+            color: $color-black;
+            background-color: $color-theme-b;
+        }
+    }
+
 }
