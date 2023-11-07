@@ -13,7 +13,7 @@ function HomePage() {
                     { name: "Timeline", icon: "schedule" },
                     { name: "Skills", icon: "build" },
                     { name: "Projects", icon: "language" },
-                    { name: "Contact", icon: "mail" },
+                    //{ name: "Contact", icon: "mail" },
                 ]}
                 subMenu={[{ title: "LinkedIn", link: "" }]}
                 activeIndex={activeIndex}
@@ -108,7 +108,6 @@ function HomePage() {
                         },
                     ]}
                 />
-                <p>Hallo 5</p>
             </MainFullFrame>
         </>
     );
