@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import { MainFullFrame, Header, ProfileInfo, FullSizeTimeline, SkillsInfo, ProjectInfo } from "../../elements";
 import "./HomePage.scss";
 
@@ -13,7 +13,6 @@ function HomePage() {
                     { name: "Timeline", icon: "schedule" },
                     { name: "Skills", icon: "build" },
                     { name: "Projects", icon: "language" },
-                    //{ name: "Contact", icon: "mail" },
                 ]}
                 subMenu={[{ title: "LinkedIn", link: "" }]}
                 activeIndex={activeIndex}
